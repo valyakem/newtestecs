@@ -1,5 +1,5 @@
 data "aws_iam_role" "pipeline_role" {
-  name = "codepipeline-role"
+  name = "nbCodeCommitUser"
 }
 
 data "aws_iam_role" "ecs-task" {
