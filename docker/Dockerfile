@@ -1,5 +1,5 @@
   
-FROM golang:alpine AS builder
+FROM golang:1.16-alpine
 
 ENV GO111MODULE=on \
     CGO_ENABLED=0 \
