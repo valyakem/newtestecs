@@ -1,11 +1,11 @@
 variable "repo_name" {
   type    = string
-  default = "dev-repo"
+  default = "testecr"
 }
 
 variable "branch_name" {
   type    = string
-  default = "master"
+  default = "main"
 }
 
 variable "build_project" {
