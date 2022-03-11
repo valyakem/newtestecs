@@ -15,7 +15,7 @@ resource "aws_lb_target_group" "tg-group" {
   target_type = "ip"
 
 }
-
+#adding it
 resource "aws_lb_listener" "lb-listener" {
   load_balancer_arn = "${aws_lb.app-lb.arn}"
   port              = "80"
