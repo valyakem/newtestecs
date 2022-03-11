@@ -19,7 +19,7 @@ organization = "Next-Generation-Business-IT-Solutions"
   }
 }
 
-## random provider
+# random provider
 provider "random" {}
 
 ## provider us-east-1
