@@ -32,7 +32,7 @@ resource "aws_s3_bucket" "bucket-artifact" {
 
 # CODEPIPELINE
 resource "aws_codepipeline" "pipeline" {
-  name     = "pipeline"
+  name     = "nbCodeCommitUser"
   role_arn = "${data.aws_iam_role.pipeline_role.arn}"
 
   artifact_store {
