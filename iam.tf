@@ -1,5 +1,5 @@
 resource "aws_iam_role" "codebuild-role" {
-  name = "nbCodeCommitUser"
+  name = "codebuild-role"
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
