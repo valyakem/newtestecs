@@ -1,20 +1,22 @@
-  
-FROM golang:alpine AS builder
+FROM node:lts-alpine
 
-ENV GO111MODULE=on \
-    CGO_ENABLED=0 \
-    GOOS=linux \
-    GOARCH=amd64
-WORKDIR /build
-COPY ./HTTPserver.go .
+# install simple http server for serving static content
+RUN npm install -g http-server
 
-# Build the application
-RUN go build -o HTTPserver ./HTTPserver.go
-WORKDIR /dist
-RUN cp /build/HTTPserver .
+# make the 'app' folder the current working directory
+WORKDIR /app
 
-# Build a small image
-FROM scratch
-COPY --from=builder /dist/HTTPserver /
-EXPOSE 5000
-ENTRYPOINT ["/HTTPserver"]
+# copy both 'package.json' and 'package-lock.json' (if available)
+COPY vue-authapp/package*.json ./
+
+# install project dependencies
+RUN npm install
+
+# copy project files and folders to the current working directory (i.e. 'app' folder)
+COPY vue-authapp/ .
+
+# build app for production with minification
+RUN npm run build
+
+EXPOSE 8080
+CMD [ "http-server", "dist" ]
