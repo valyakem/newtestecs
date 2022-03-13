@@ -4,4 +4,3 @@
 .terraform.tfstate.lock.info
 # Module directory
 .terraform/
-vue-authapp/node_modules

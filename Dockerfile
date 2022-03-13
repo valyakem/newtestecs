@@ -1,22 +1,20 @@
-FROM node:lts-alpine
+# start by pulling the python image
+FROM python:3.8-alpine
 
-# install simple http server for serving static content
-RUN npm install -g http-server
+# copy the requirements file into the image
+COPY ./flaskapp/requirements.txt /app/requirements.txt
 
-# make the 'app' folder the current working directory
+# switch working directory
 WORKDIR /app
 
-# copy both 'package.json' and 'package-lock.json' (if available)
-COPY vue-authapp/package*.json ./
+# install the dependencies and packages in the requirements file
+RUN pip install -r requirements.txt
 
-# install project dependencies
-RUN npm install
+# copy every content from the local file to the image
+COPY ./flaskapp /app
 
-# copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY vue-authapp/ .
+EXPOSE 5000
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python3" ]
 
-# build app for production with minification
-RUN npm run build
-
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+CMD ["main.py" ]
