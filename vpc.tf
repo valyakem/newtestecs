@@ -6,7 +6,7 @@ resource "aws_vpc" "ecs-vpc" {
   }
 }
 
-# PUBLIC SUBNETS
+# PUBLIC SUBNETSee
 resource "aws_subnet" "pub-subnets" {
   count                   = length(var.azs)
   vpc_id                  = "${aws_vpc.ecs-vpc.id}"
