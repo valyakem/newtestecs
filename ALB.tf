@@ -18,7 +18,7 @@ resource "aws_lb_target_group" "tg-group" {
 #adding it
 resource "aws_lb_listener" "lb-listener" {
   load_balancer_arn = "${aws_lb.app-lb.arn}"
-  port              = "8080"
+  port              = "5000"
   protocol          = "HTTP"
 
   default_action {
