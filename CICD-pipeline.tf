@@ -46,7 +46,7 @@ resource "aws_codepipeline" "pipeline" {
       name             = "Source"
       category         = "Source"
       owner            = "AWS"
-      provider         = "CodeCommit"
+      provider         = "GitHub (Version 2)"
       version          = "1"
       output_artifacts = ["source_output"]
 
@@ -86,7 +86,7 @@ resource "aws_codepipeline" "pipeline" {
 
       configuration = {
         ClusterName = "clusterDev"
-        ServiceName = "golang-Service"
+        ServiceName = "nbapp-Service"
         FileName    = "imagedefinitions.json"
       }
     }
