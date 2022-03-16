@@ -46,7 +46,7 @@ resource "aws_codepipeline" "pipeline" {
       name             = "Source"
       category         = "Source"
       owner            = "AWS"
-      provider         = "GitHub (Version 2)"
+      provider         = "codecommit"
       version          = "1"
       output_artifacts = ["source_output"]
 
