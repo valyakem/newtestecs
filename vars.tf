@@ -1,11 +1,11 @@
 variable "repo_name" {
   type    = string
-  default = "testecr"
+  default = "dev-repo"
 }
 
 variable "branch_name" {
   type    = string
-  default = "main"
+  default = "master"
 }
 
 variable "build_project" {
@@ -15,5 +15,5 @@ variable "build_project" {
 
 variable "uri_repo" {
   type = string
-  default ="440153443065.dkr.ecr.us-east-1.amazonaws.com/testecr"
+  #The URI_REPO value is in a TF_VAR in my PC
 }

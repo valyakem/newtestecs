@@ -1,28 +1,13 @@
-
 terraform {
   required_providers {
-      aws = {
-        source =  "hashicorp/aws"
-      } 
-      random = {
-	source = "hashicorp/random"
-      }
-}
-
-backend "remote" {
-organization = "Next-Generation-Business-IT-Solutions"
- 
-  
-    workspaces {
-      name = "modulestraining1"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.51"
     }
   }
 }
-
-# random providerss
-provider "random" {}
-
-## provider us-east-1
 provider "aws" {
-  region = "us-east-1"
+  profile = "default"
+  region  = "us-east-1"
 }
+
