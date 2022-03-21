@@ -5,7 +5,7 @@ resource "aws_organizations_account" "pricingtool-arcablanca" {
   iam_user_access_to_billing  = "ALLOW"
   parent_id = "r-tjwo"
 
-  # There is no AWS Organizations API for reading role_name change region
+  # There is no AWS Organizations API for reading role_name change regionsdf
   lifecycle {
     ignore_changes = [role_name]
   }
